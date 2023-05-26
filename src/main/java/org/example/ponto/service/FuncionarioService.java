@@ -19,7 +19,7 @@ public class FuncionarioService {
         this.funcionarioRepository = funcionarioRepository;
     }
 
-    public Funcionario registrarFuncionario(FuncionarioDTO funcionarioDTO) {
+    public Funcionario registrarOuEditarFuncionario(FuncionarioDTO funcionarioDTO) {
         Funcionario funcionario = new Funcionario();
         BeanUtils.copyProperties(funcionarioDTO, funcionario);
         return funcionarioRepository.save(funcionario);
@@ -32,5 +32,9 @@ public class FuncionarioService {
 
     public List<Funcionario> buscarTodosFuncionarios() {
         return funcionarioRepository.findAll();
+    }
+
+    public void excluirFuncionario(Long id) {
+        funcionarioRepository.deleteById(id);
     }
 }

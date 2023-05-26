@@ -20,13 +20,19 @@ public class FuncionarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Funcionario> registrarFuncionario(@RequestBody FuncionarioDTO funcionarioDTO) {
-        Funcionario funcionario = funcionarioService.registrarFuncionario(funcionarioDTO);
+    public ResponseEntity<Funcionario> registrarOuEditarFuncionario(@RequestBody FuncionarioDTO funcionarioDTO) {
+        Funcionario funcionario = funcionarioService.registrarOuEditarFuncionario(funcionarioDTO);
         return ResponseEntity.ok(funcionario);
     }
 
     @GetMapping
     public List<Funcionario> buscarTodosFuncionarios() {
         return funcionarioService.buscarTodosFuncionarios();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> excluirFuncionario(@PathVariable Long id) {
+        funcionarioService.excluirFuncionario(id);
+        return ResponseEntity.noContent().build();
     }
 }

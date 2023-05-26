@@ -5,11 +5,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 public class FuncionarioDTO {
+    private Long id;
     private String nome;
 
     private String cpf;
 
     private double valorHora;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
