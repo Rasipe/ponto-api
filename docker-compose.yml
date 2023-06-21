@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  backend:
+    build:
+      context: ./ponto-api
+      dockerfile: dockerfile
+    ports:
+      - '8080:8080'
+  
+  frontend:
+    build: 
+      context: ./ponto-frontend
+      dockerfile: dockerfile
+    ports:
+      - '3000:3000'
